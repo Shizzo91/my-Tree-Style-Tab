@@ -1,0 +1,16 @@
+@use '../_variables.scss' as *;
+
+// settings for counting tabs
+.newtab-button {
+    --tab-count-text: counter(tabs) " tabs";
+    position: relative;
+
+    &::before {
+        content: var(--tab-count-text);
+        position: absolute;
+        left: 0.5rem;
+        font-weight: bolder;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+    }
+}

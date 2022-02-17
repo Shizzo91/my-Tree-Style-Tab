@@ -1,11 +1,28 @@
 @use '../_variables.scss' as *;
 
-t
-ab-item {
-    & tab-label {
+@use 'tab-item_animation' as *;
+
+tab-item {
+    // all changes for counting tabs
+    counter-increment: tabs;
+
+    &:not(.collapsed):not(.discarded) {
+        counter-increment: vtabs atabs tabs;
+    }
+
+    &:not(.collapsed) {
+        counter-increment: vtabs tabs;
+    }
+
+    &:not(.discarded) {
+        counter-increment: atabs tabs;
+    }
+
+    tab-label {
         transition: $main-transition;
     }
 
+    // opther
     &:hover {
         & .highlighter {
             outline: ($px_rem * 5) solid rgba($color: black, $alpha: 0.8);
@@ -14,7 +31,15 @@ ab-item {
         & tab-label {
             text-decoration: underline;
             font-weight: bolder;
-            text-shadow: ($px_rem * 2) ($px_rem * 2) ($px_rem * 1) rgba($color: black, $alpha: 0.8);
+        }
+
+        & tab-favicon {
+            animation-name: shaking;
+            animation-duration: 2s;
+            animation-direction: reverse;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
         }
     }
 }
