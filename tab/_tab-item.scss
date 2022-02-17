@@ -1,0 +1,20 @@
+@use '../_variables.scss' as *;
+
+t
+ab-item {
+    & tab-label {
+        transition: $main-transition;
+    }
+
+    &:hover {
+        & .highlighter {
+            outline: ($px_rem * 5) solid rgba($color: black, $alpha: 0.8);
+        }
+
+        & tab-label {
+            text-decoration: underline;
+            font-weight: bolder;
+            text-shadow: ($px_rem * 2) ($px_rem * 2) ($px_rem * 1) rgba($color: black, $alpha: 0.8);
+        }
+    }
+}

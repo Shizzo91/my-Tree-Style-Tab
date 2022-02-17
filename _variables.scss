@@ -1,0 +1,27 @@
+// background region
+$scale: scale(4);
+$bg_colors: #ff6666, #89FF00, #FF9800, #fe019a, #00FFFF, #FF00FF, #00BFFF, #00FF7F, #FF6EC7;
+$px_rem: 1rem / 16;
+
+// adding some more colors
+$-diff: 20 - length($bg_colors);
+
+@if $-diff > 0 {
+    @for $j from 1 to $-diff {
+        $-r1: random(length($bg_colors) - 1) + 1;
+        $-r2: random(length($bg_colors) - 1) + 1;
+
+        $bg_colors: append($bg_colors, mix(nth($bg_colors, $-r1), nth($bg_colors, $-r2), 60%));
+    }
+}
+
+// timer for the background color change
+$bg_timer: (length($bg_colors) + 1) * 5.5s;
+
+// closebox region
+$closebox-bg-color: #ff0000 !important;
+$closebox-cross-color: rgb(255, 255, 255);
+$closebox-border-style: ($px_rem * 1) solid $closebox-cross-color;
+
+// transmition region
+$main-transition: all 250ms ease-in-out;

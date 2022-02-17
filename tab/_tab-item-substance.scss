@@ -1,0 +1,21 @@
+@use '../_variables.scss' as *;
+
+tab-item-substance {
+    &::after {
+        content: "#" attr(data-tab-id);
+        position: absolute;
+        right: 0;
+        width: 3ch;
+        text-align: start;
+        color: rgba($color: black, $alpha: 0.8);
+        text-shadow: ($px_rem * 2) ($px_rem * 2) ($px_rem * 4) rgba($color: white, $alpha: 0.6);
+        font-weight: bolder;
+        opacity: 1;
+        transform: rotate(25deg);
+        transition: $main-transition;
+    }
+
+    &:hover::after {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,40 @@
+@use '../_variables.scss' as *;
+
+@use 'amimations' as *;
+
+#background {
+    background: black;
+
+    &::after, &::before {
+        position: absolute;
+        content: "";
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    &::after {
+        background-color: blue;
+        z-index: 1;
+        animation-name: animation;
+        animation-duration: $bg_timer;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-play-state: running;
+    }
+
+    &::before {
+        $background-main-color: rgb(36, 36, 36);
+
+        background: radial-gradient(circle, rgba($background-main-color, 0.7) 0%, transparent 2.5%, rgba($background-main-color, 0.85) 20%) 50% 50%;
+        z-index: 2;
+        transform: #{$scale};
+        animation-name: bouncing;
+        animation-duration: 99 * 5s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-play-state: running;
+    }
+}

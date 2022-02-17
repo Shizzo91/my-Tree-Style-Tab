@@ -1,0 +1,41 @@
+@use '../_variables.scss' as *;
+
+@keyframes animation {
+    0% {
+        background-color: blue;
+    }
+
+    $part: 100% / (length($bg_colors) + 1);
+
+    @for $i from 1 to length($bg_colors) {
+        $pper: $part * $i;
+
+        #{$pper} {
+            background-color: nth($bg_colors, $i);
+        }
+    }
+
+    100.0% {
+        background-color: blue;
+    }
+}
+
+@keyframes bouncing {
+    0% {
+        transform: translate(0, 0) #{$scale};
+    }
+
+    @for $i from 0 to 98 {
+        $-per: $i + 1%;
+        $-x-off: random(100) - 50%;
+        $-y-off: random(100) - 50%;
+
+        #{$-per} {
+            transform: translate(#{$-x-off}, #{$-y-off}) #{$scale};
+        }
+    }
+
+    100% {
+        transform: translate(0, 0) #{$scale};
+    }
+}

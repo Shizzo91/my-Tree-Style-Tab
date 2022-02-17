@@ -1,0 +1,56 @@
+
+
+tab-item {
+    & tab-label {
+        transition: all 250ms ease-in-out;
+    }
+
+    &:hover {
+        & .highlighter {
+            outline: ($_px_rem * 5) solid rgba($color: black, $alpha: 0.8);
+        }
+
+        & tab-label {
+            text-decoration: underline;
+            font-weight: bolder;
+            text-shadow: ($_px_rem * 2) ($_px_rem * 2) ($_px_rem * 1) rgba($color: black, $alpha: 0.8);
+        }
+    }
+
+    & tab-closebox {
+        opacity: 0;
+        transition: all 250ms ease-in-out;
+
+        &:hover {
+            opacity: 0.8;
+
+            &::before {
+                background-color: #ff0000;
+            }
+        }
+
+        &::before {
+            background-color: #ff0000;
+        }
+    }
+}
+
+tab-item-substance {
+    &::after {
+        content: "#" attr(data-tab-id);
+        position: absolute;
+        right: 0;
+        width: 3ch;
+        text-align: start;
+        color: rgba($color: black, $alpha: 0.8);
+        text-shadow: ($_px_rem * 2) ($_px_rem * 2) ($_px_rem * 4) rgba($color: white, $alpha: 0.6);
+        font-weight: bolder;
+        opacity: 1;
+        transform: rotate(25deg);
+        transition: opacity 250ms ease-in-out;
+    }
+
+    &:hover::after {
+        opacity: 0;
+    }
+}

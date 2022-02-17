@@ -1,0 +1,28 @@
+@use '../_variables.scss' as *;
+
+%closebox-background {
+    background-color: $closebox-bg-color;
+    border: $closebox-border-style;
+    outline: $closebox-border-style;
+}
+
+tab-closebox {
+    opacity: 0;
+    transition: $main-transition;
+
+    &:hover {
+        opacity: 1;
+
+        &::before {
+            @extend %closebox-background;
+        }
+    }
+
+    &::before {
+        @extend %closebox-background;
+    }
+
+    &::after {
+        background: $closebox-cross-color;
+    }
+}
