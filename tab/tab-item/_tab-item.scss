@@ -1,5 +1,5 @@
-@use '../_variables.scss' as *;
-
+@use '../../variables' as *;
+@use '../../mixin' as m;
 @use 'tab-item_animation' as *;
 
 tab-item {
@@ -34,12 +34,7 @@ tab-item {
         }
 
         & tab-favicon {
-            animation-name: shaking;
-            animation-duration: 2s;
-            animation-direction: reverse;
-            animation-timing-function: ease-in-out;
-            animation-iteration-count: infinite;
-            animation-play-state: running;
+            @include m.animation-mixin(shaking, 1.5s);
         }
     }
 }

@@ -1,7 +1,7 @@
-@use '../_variables.scss' as *;
+@use '../variables' as *;
 
-@keyframes animation {
-    0% {
+@keyframes disco-light {
+    0%, 100% {
         background-color: blue;
     }
 
@@ -13,10 +13,6 @@
         #{$pper} {
             background-color: nth($bg_colors, $i);
         }
-    }
-
-    100.0% {
-        background-color: blue;
     }
 }
 

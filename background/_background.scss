@@ -1,4 +1,6 @@
-@use '../_variables.scss' as *;
+@use '../variables' as *;
+
+@use '../mixin' as m;
 
 @use 'amimations' as *;
 
@@ -18,11 +20,8 @@
     &::after {
         background-color: blue;
         z-index: 1;
-        animation-name: animation;
-        animation-duration: $bg_timer;
-        animation-timing-function: ease-in-out;
-        animation-iteration-count: infinite;
-        animation-play-state: running;
+
+        @include m.animation-mixin(disco-light, $bg_timer);
     }
 
     &::before {
@@ -31,10 +30,7 @@
         background: radial-gradient(circle, rgba($background-main-color, 0.7) 0%, transparent 2.5%, rgba($background-main-color, 0.85) 20%) 50% 50%;
         z-index: 2;
         transform: #{$scale};
-        animation-name: bouncing;
-        animation-duration: 99 * 5s;
-        animation-timing-function: ease-in-out;
-        animation-iteration-count: infinite;
-        animation-play-state: running;
+
+        @include m.animation-mixin(bouncing, 99 * 5s);
     }
 }
